@@ -22,7 +22,6 @@ export const createNewExercise = asyncHandler(async (req, res) => {
 // @desc    Update exercise
 // @route 	PUT /api/exercises/:id
 // @access  Private
-
 export const updateExercise = asyncHandler(async (req, res) => {
 	const { name, times, iconPath } = req.body
 
@@ -41,14 +40,13 @@ export const updateExercise = asyncHandler(async (req, res) => {
 		res.json(exercise)
 	} catch (error) {
 		res.status(404)
-		throw new Error('Exercise not found')
+		throw new Error('Exercise not found!')
 	}
 })
 
 // @desc    Delete exercise
 // @route 	DELETE /api/exercises/:id
 // @access  Private
-
 export const deleteExercise = asyncHandler(async (req, res) => {
 	try {
 		const exercise = await prisma.exercise.delete({
@@ -60,7 +58,7 @@ export const deleteExercise = asyncHandler(async (req, res) => {
 		res.json({ message: 'Exercise deleted!' })
 	} catch (error) {
 		res.status(404)
-		throw new Error('Exercise not found')
+		throw new Error('Exercise not found!')
 	}
 })
 
